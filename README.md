@@ -1,6 +1,6 @@
 # Academic System - Trabalho Final (IFCE)
 
-Projeto mínimo para o trabalho final da disciplina *Tópicos em Java para a Web*.
+Projeto final da disciplina *Tópicos em Java para a Web*.
 
 ## Como executar (Eclipse / IntelliJ / VS Code)
 1. Importar como projeto Maven (pom.xml).
