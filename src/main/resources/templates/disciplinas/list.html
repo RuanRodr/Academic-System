@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"/><title>Disciplinas</title></head>
+<body>
+<h2>Disciplinas</h2>
+<p><a th:href="@{/}">Home</a> | <a th:href="@{/disciplinas/novo}">Nova Disciplina</a></p>
+<table border="1">
+<tr><th>ID</th><th>Código</th><th>Nome</th><th>Carga</th><th>Semestre</th><th>Ações</th></tr>
+<tr th:each="d : ${disciplinas}">
+  <td th:text="${d.id}"></td>
+  <td th:text="${d.codigo}"></td>
+  <td th:text="${d.nome}"></td>
+  <td th:text="${d.cargaHoraria}"></td>
+  <td th:text="${d.semestre}"></td>
+  <td><a th:href="@{|/disciplinas/edit/${d.id}|}">Editar</a> | <a th:href="@{|/disciplinas/delete/${d.id}|}">Excluir</a></td>
+</tr>
+</table>
+</body>
+</html>

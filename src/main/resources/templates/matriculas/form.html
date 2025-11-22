@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"/><title>Matrícula</title></head>
+<body>
+<h2>Matrícula</h2>
+<p><a th:href="@{/matriculas}">Voltar</a></p>
+<form th:action="@{/matriculas/save}" th:object="${matricula}" method="post">
+    <input type="hidden" th:field="*{id}"/>
+    <div><label>Aluno: <select th:field="*{aluno.id}">
+        <option th:each="a : ${alunos}" th:value="${a.id}" th:text="${a.nome}"></option>
+    </select></label></div>
+    <div><label>Disciplina: <select th:field="*{disciplina.id}">
+        <option th:each="d : ${disciplinas}" th:value="${d.id}" th:text="${d.nome}"></option>
+    </select></label></div>
+    <div><label>Situação: <select th:field="*{situacao}">
+        <option th:value="CURSANDO">CURSANDO</option>
+        <option th:value="APROVADO">APROVADO</option>
+        <option th:value="REPROVADO">REPROVADO</option>
+        <option th:value="TRANCADO">TRANCADO</option>
+    </select></label></div>
+    <div><label>Nota Final: <input type="number" step="0.01" th:field="*{notaFinal}"/></label></div>
+    <div><button type="submit">Salvar</button></div>
+</form>
+<div th:if="${erro}" th:text="${erro}"></div>
+</body>
+</html>

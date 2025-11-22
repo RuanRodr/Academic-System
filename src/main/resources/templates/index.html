@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"/><title>Home</title></head>
+<body>
+<h1>Sistema Acadêmico - Home</h1>
+<p><a th:href="@{/alunos}">Alunos</a> | <a th:href="@{/disciplinas}">Disciplinas</a> | <a th:href="@{/matriculas}">Matrículas</a></p>
+<p th:if="${#authentication.principal!=null}">Logado como: <span th:text="${#authentication.name}"></span> — <a th:href="@{/logout}">Sair</a></p>
+<p th:if="${#authentication.principal==null}"><a th:href="@{/login}">Login</a></p>
+</body>
+</html>

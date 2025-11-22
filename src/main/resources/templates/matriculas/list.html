@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"/><title>Matrículas</title></head>
+<body>
+<h2>Matrículas</h2>
+<p><a th:href="@{/}">Home</a> | <a th:href="@{/matriculas/novo}">Nova Matrícula</a></p>
+<table border="1">
+<tr><th>ID</th><th>Aluno</th><th>Disciplina</th><th>Situação</th><th>Nota</th><th>Ações</th></tr>
+<tr th:each="m : ${matriculas}">
+  <td th:text="${m.id}"></td>
+  <td th:text="${m.aluno.nome}"></td>
+  <td th:text="${m.disciplina.nome}"></td>
+  <td th:text="${m.situacao}"></td>
+  <td th:text="${m.notaFinal}"></td>
+  <td><a th:href="@{|/matriculas/delete/${m.id}|}">Excluir</a></td>
+</tr>
+</table>
+</body>
+</html>

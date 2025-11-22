@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"/><title>Disciplina</title></head>
+<body>
+<h2>Disciplina</h2>
+<p><a th:href="@{/disciplinas}">Voltar</a></p>
+<form th:action="@{/disciplinas/save}" th:object="${disciplina}" method="post">
+    <input type="hidden" th:field="*{id}"/>
+    <div><label>Código: <input th:field="*{codigo}"/></label></div>
+    <div><label>Nome: <input th:field="*{nome}"/></label></div>
+    <div><label>Carga Horária: <input type="number" th:field="*{cargaHoraria}"/></label></div>
+    <div><label>Semestre: <input th:field="*{semestre}"/></label></div>
+    <div><button type="submit">Salvar</button></div>
+</form>
+<div th:if="${erro}" th:text="${erro}"></div>
+</body>
+</html>
